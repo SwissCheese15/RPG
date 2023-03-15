@@ -1,4 +1,4 @@
-import { Cactoro } from "../../../public/Models/Monsters/Cactoro";
+import { Cactoro } from "./Cactoro";
 import Monster from "./Monster";
 
 export default function Npc() {
