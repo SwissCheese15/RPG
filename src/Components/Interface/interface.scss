@@ -1,0 +1,11 @@
+.infoBar {
+    background-color: rgba(0, 0, 0, 0.234);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.health[value] {
+    height: 3vh
+}

@@ -1,0 +1,41 @@
+.infoBar {
+    background-color: rgba(0, 0, 0, 0.234);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.healthBar {
+    height: 10vh;
+}
+
+.healthBar p {
+    max-height: 3vh;
+}
+
+.health[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 300%;
+    height: 25%;
+}
+
+.health[value]::-webkit-progress-bar {
+    background-color: rgba(238, 238, 238, 0.676);
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+.health[value]::-webkit-progress-value {
+    background-color: rgb(50, 255, 47)
+}
+
+.healthValue {
+    height: 0;
+    position: relative;
+    left: 145%;
+}
