@@ -17,12 +17,10 @@ export default function Npc() {
 
 
     return <>
-    <Cactoro z={-10}></Cactoro>
-    <Cactoro z={-5}></Cactoro>
 
-    <Cactoro z={25}></Cactoro>
+    <Cactoro position-z={-20}></Cactoro>
 
-    <Cactoro z={-15}></Cactoro>
+    <Cactoro position-z={-10}></Cactoro>
 {/* 
         <Monster
             name={"Cactoro"}
