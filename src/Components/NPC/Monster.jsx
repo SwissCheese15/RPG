@@ -6,9 +6,9 @@ import { useRef, useMemo, useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToState } from "../../Redux/CharacterSlice"
 
-let damageTime = 0
-
 export default function Monster(props) {
+
+    let damageTime = 0
 
     const dispatch = useDispatch()
 
