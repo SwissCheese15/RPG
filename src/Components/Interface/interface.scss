@@ -1,11 +1,80 @@
-.infoBar {
-    background-color: rgba(0, 0, 0, 0.234);
+.info-bar {
+    box-sizing: border-box;
+    position: absolute;
+    @include main-border(4px);
+    background-color: $main-interface-back;
     width: 100vw;
+    height: $infobar-height;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-start;
+
+    h3 {
+        position: relative;
+        top: -23px;
+        padding: 10px;
+        font-family: 'breathe_fireregular';
+        color: $main-font-color;
+        font-size: 30px;
+        font-weight: 400;
+        text-shadow: 0 1px 3px #000;
+        white-space: nowrap;
+    }
+
+    div {
+        position: relative;
+        top: 0px;
+        width: 12vw;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        p {
+            line-height: 10px;
+            @include main-font(14px);
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+    }
+
+    button {
+        @include info-bar-button()
+    }
+
+    .health-bar-div {
+        height: auto;
+
+        .health-progress {
+            position: relative;
+            top: -5px;
+        }
+
+        .health-progress[value] {
+            /* Reset the default appearance */
+            -webkit-appearance: none;
+            appearance: none;
+        
+            width: 100%;
+            height: 13px;
+        }
+        
+        .health-progress[value]::-webkit-progress-bar {
+            background-color: rgba(238, 238, 238, 0.676);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+          }
+        
+        .health-progress[value]::-webkit-progress-value {
+            background-color: rgb(50, 255, 47);
+        }
+    }
 }
 
-.health[value] {
-    height: 3vh
+.health-value {
+    font-size: $infobar-height * 0.18;
+    margin-bottom: 1px;
+    height: 0;
+    position: relative;
+    z-index: 1;
+    left: 36%;
 }

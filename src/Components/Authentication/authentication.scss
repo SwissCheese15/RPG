@@ -1,0 +1,76 @@
+.auth-main-div {
+    width: 100%;
+    height: 100%;
+    // SASS, choose correct path from compiled css file
+    background-image: url("../../public/Images/viking-background-1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include flex-center-center(column);
+
+    h1 {
+        color: $main-font-color;
+        font-family: breathe_fireregular;
+        font-size: (calc(3rem + 0.5vw));
+        background-color: $main-interface-back;
+        @include main-border(3px);
+        padding: 20px 45px;
+        border-radius: 20px;
+    }
+
+    .auth-main-menu {
+        @include flex-center-center(column);
+        @include main-interface();
+        min-height: 45%;
+        color: $main-font-color;
+        font-family: $main-font-family;
+
+        h2 {
+            @include main-font(calc(1.4rem + 0.4vw));
+        }
+    }
+}
+
+.login-signup-main-div {
+
+    @include flex-center-center(column);
+
+    button {
+        @include auth-button()
+    }
+
+    form {
+        @include flex-center-center(column);
+        > * {
+            margin: 0.7vw
+        }
+        input {
+            @include interface-input();
+            &::placeholder {
+                @include main-font(calc(0.5rem + 0.4vw));
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        .alert-div > p {
+            color: red;
+            background-color: white;
+            padding: 4px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    }
+    .login-signup-toggle {
+        width: 42vw;
+        margin-top: 0.7vw;
+        margin-bottom: 0.7vw;
+        @include flex-center-center(row);
+        > * {
+            margin: 0.7vw
+        }
+        p {
+            font-size: calc(0.7rem + 0.6vw);
+        }
+    }
+
+}

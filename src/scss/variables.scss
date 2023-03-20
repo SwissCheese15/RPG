@@ -1,0 +1,78 @@
+// File to define variables
+$main-font-color: #ffc000;
+$main-font-family: "Skranji";
+$main-interface-back: rgb(30, 30, 30);
+$main-button-color: #127380;
+// variable for infobar height and border bc canvas-height depends on it
+$infobar-height: 70px;
+// $header-footer-height: 10vh;
+// // Example of using math operations to create dynamic values
+// $aside-counter-height: 100vh - $header-footer-height * 2;
+
+// Mixins to bundle and reuse blocks of code
+@mixin flex-center-center($direction) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin main-font($size) {
+    font-family: $main-font-family;
+    color: $main-font-color;
+    font-size: $size;
+    font-weight: 400;
+    text-shadow: 0 1px 3px #000;
+}
+
+@mixin main-border($line) {
+    border-top: $line ridge #ffb000;
+    border-left: $line groove #ffb000;
+    border-right: $line ridge #ffb000;
+    border-bottom: $line groove #ffb000;
+}
+
+@mixin main-interface() {
+    background-color: $main-interface-back;
+    @include main-border(3px);
+    border-radius: 25px;
+}
+
+@mixin auth-button() {
+    @include main-font(calc(0.5rem + 0.4vw));
+    @include main-border(3px);
+    cursor: pointer;
+    margin: 10px auto;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    background: radial-gradient(circle, #00545f, #127380);
+    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+}
+
+@mixin info-bar-button() {
+    @include main-font(14px);
+    @include main-border(3px);
+    cursor: pointer;
+    position: relative;
+    top: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 50%;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    text-align: center;
+    background: radial-gradient(circle, #00545f, #127380);
+    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+    margin-right: 10px
+}
+
+@mixin interface-input() {
+    @include main-font(calc(0.5rem + 0.4vw));
+    @include main-border(3px);
+    background-color: $main-button-color;
+    padding: 0.7vw;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+}

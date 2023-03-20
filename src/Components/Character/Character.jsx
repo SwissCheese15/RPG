@@ -3,10 +3,13 @@ import { useThree, useFrame, useLoader } from "@react-three/fiber"
 import { useKeyboardControls, useAnimations } from "@react-three/drei"
 import { useRef, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addToState, changeState, toggle } from "../../Redux/CharacterSlice"
+import { addToState, addVector, toggle } from "../../Redux/CharacterSlice"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 export default function Character() {
+
+    // Tweaks
+    const walkingSpeed = 10
 
     // GLTF
     const viking = useLoader(GLTFLoader, "/Models/Viking/scene.gltf")
@@ -22,12 +25,11 @@ export default function Character() {
         chop.setLoop(THREE.LoopOnce)
         walking ? walk.play() : walk.stop(), idle.play()
 
-
-
     // -------
 
     const dispatch = useDispatch()
     const rotationY = useSelector((state) => state.Character.rotationY)
+    const position = useSelector((state) => state.Character.position)
 
     const character = useRef()
 
@@ -37,7 +39,7 @@ export default function Character() {
     const jumpSpeed = 10
     const jumpDuration = 0.2
 
-    const cameraDistance = 5
+    const cameraDistance = 7
 
     let jumpTime = 0
 
@@ -84,29 +86,34 @@ export default function Character() {
 
     }, [attack])
 
+    useEffect(() => {
+
+    }, [])
+
     useFrame((state, delta) => {
 
         const elapsed = state.clock.elapsedTime
 
         const { forward, backward, leftward, rightward, jump, attack } = getKeys()
 
-        let f = new THREE.Vector3(0, 0, 0.03)
+        // Appling the current Y-Axis Angle to the Displacement Vector to walk forward
+        let f = new THREE.Vector3(0, 0, walkingSpeed * 0.002)
         f.applyAxisAngle( new THREE.Vector3(0, 1, 0), character.current.rotation.y)
-        let b = new THREE.Vector3(0, 0, 0.03)
+        // Same for backward
+        let b = new THREE.Vector3(0, 0, walkingSpeed * 0.001)
         b.applyAxisAngle( new THREE.Vector3(0, 1, 0), character.current.rotation.y + Math.PI)
     
         if (backward) { 
             setWalking(true);
-            character.current.position.add(b);
-            dispatch(changeState(["positionX", character.current.position.x]));
-            dispatch(changeState(["positionZ", character.current.position.z])); 
+            // Sending the displacement to the Character Store
+            dispatch(addVector([b.x, b.y, b.z]));
         }
         if (forward) {
             setWalking(true);
-            character.current.position.add(f);
-            dispatch(changeState(["positionX", character.current.position.x]));
-            dispatch(changeState(["positionZ", character.current.position.z]));
+            // Sending the displacement to the Character Slice
+            dispatch(addVector([f.x, f.y, f.z]));
         }
+        // Sending the rotation-change to the Character Slice
         if (leftward) { dispatch(addToState(["rotationY", delta * speed])), setWalking(true) }
         if (rightward) { dispatch(addToState(["rotationY", -delta * speed])), setWalking(true) }
         if ( !backward && !forward && !leftward && !rightward ) { setWalking(false)}
@@ -135,7 +142,7 @@ export default function Character() {
     <primitive 
         object={viking.scene} 
         ref={character}
-        position={[0,0,0]}
+        position={position}
         rotation-y={ rotationY } 
         scale={ 0.7 }
     />

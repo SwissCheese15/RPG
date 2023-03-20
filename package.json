@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "sass": "sass --watch scss:css"
+    "sass": "sass --watch src:css"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "3.0",
@@ -19,6 +19,7 @@
     "react": "18.2",
     "react-dom": "18.2",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.9.0",
     "sass": "^1.59.2",
     "three": "^0.148.0"
   }

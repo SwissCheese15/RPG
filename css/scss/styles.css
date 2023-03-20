@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "breathe_fireregular";
+  src: url("../../public/Fonts/breathe-fire/breathefire-65pg-webfont.woff2") format("woff2"), url("../../public/Fonts/breathe-fire/breathefire-65pg-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body,
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas {
+  position: absolute;
+  height: calc(var(--screen-y) - 70px);
+  width: 100vw;
+  bottom: 0;
+}
+
+.info-bar {
+  box-sizing: border-box;
+  position: absolute;
+  border-top: 4px ridge #ffb000;
+  border-left: 4px groove #ffb000;
+  border-right: 4px ridge #ffb000;
+  border-bottom: 4px groove #ffb000;
+  background-color: rgb(30, 30, 30);
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.info-bar h3 {
+  position: relative;
+  top: -23px;
+  padding: 10px;
+  font-family: "breathe_fireregular";
+  color: #ffc000;
+  font-size: 30px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  white-space: nowrap;
+}
+.info-bar div {
+  position: relative;
+  top: 0px;
+  width: 12vw;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.info-bar div p {
+  line-height: 10px;
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: 14px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.info-bar button {
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: 14px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  border-top: 3px ridge #ffb000;
+  border-left: 3px groove #ffb000;
+  border-right: 3px ridge #ffb000;
+  border-bottom: 3px groove #ffb000;
+  cursor: pointer;
+  position: relative;
+  top: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 50%;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  text-align: center;
+  background: radial-gradient(circle, #00545f, #127380);
+  box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+  margin-right: 10px;
+}
+.info-bar .health-bar-div {
+  height: auto;
+}
+.info-bar .health-bar-div .health-progress {
+  position: relative;
+  top: -5px;
+}
+.info-bar .health-bar-div .health-progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 13px;
+}
+.info-bar .health-bar-div .health-progress[value]::-webkit-progress-bar {
+  background-color: rgba(238, 238, 238, 0.676);
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.info-bar .health-bar-div .health-progress[value]::-webkit-progress-value {
+  background-color: rgb(50, 255, 47);
+}
+
+.health-value {
+  font-size: 12.6px;
+  margin-bottom: 1px;
+  height: 0;
+  position: relative;
+  z-index: 1;
+  left: 36%;
+}
+
+.auth-main-div {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/Images/viking-background-1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-main-div h1 {
+  color: #ffc000;
+  font-family: breathe_fireregular;
+  font-size: calc(3rem + 0.5vw);
+  background-color: rgb(30, 30, 30);
+  border-top: 3px ridge #ffb000;
+  border-left: 3px groove #ffb000;
+  border-right: 3px ridge #ffb000;
+  border-bottom: 3px groove #ffb000;
+  padding: 20px 45px;
+  border-radius: 20px;
+}
+.auth-main-div .auth-main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(30, 30, 30);
+  border-top: 3px ridge #ffb000;
+  border-left: 3px groove #ffb000;
+  border-right: 3px ridge #ffb000;
+  border-bottom: 3px groove #ffb000;
+  border-radius: 25px;
+  min-height: 45%;
+  color: #ffc000;
+  font-family: "Skranji";
+}
+.auth-main-div .auth-main-menu h2 {
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: calc(1.4rem + 0.4vw);
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+}
+
+.login-signup-main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-signup-main-div button {
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: calc(0.5rem + 0.4vw);
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  border-top: 3px ridge #ffb000;
+  border-left: 3px groove #ffb000;
+  border-right: 3px ridge #ffb000;
+  border-bottom: 3px groove #ffb000;
+  cursor: pointer;
+  margin: 10px auto;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  background: radial-gradient(circle, #00545f, #127380);
+  box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+}
+.login-signup-main-div form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-signup-main-div form > * {
+  margin: 0.7vw;
+}
+.login-signup-main-div form input {
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: calc(0.5rem + 0.4vw);
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  border-top: 3px ridge #ffb000;
+  border-left: 3px groove #ffb000;
+  border-right: 3px ridge #ffb000;
+  border-bottom: 3px groove #ffb000;
+  background-color: #127380;
+  padding: 0.7vw;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+}
+.login-signup-main-div form input::placeholder {
+  font-family: "Skranji";
+  color: #ffc000;
+  font-size: calc(0.5rem + 0.4vw);
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+}
+.login-signup-main-div form input:focus {
+  outline: none;
+}
+.login-signup-main-div form .alert-div > p {
+  color: red;
+  background-color: white;
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.login-signup-main-div .login-signup-toggle {
+  width: 42vw;
+  margin-top: 0.7vw;
+  margin-bottom: 0.7vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.login-signup-main-div .login-signup-toggle > * {
+  margin: 0.7vw;
+}
+.login-signup-main-div .login-signup-toggle p {
+  font-size: calc(0.7rem + 0.6vw);
+}
+
+/*# sourceMappingURL=styles.css.map */

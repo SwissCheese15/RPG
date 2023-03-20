@@ -1,6 +1,4 @@
-import InfoBar from "./InfoBar";
-import "./styles.css"
-
+import InfoBar from "./InterfaceSubComponents/InfoBar";
 
 export default function Interface() {
 
